@@ -1,0 +1,37 @@
+{
+  "name": "konwerter_walut",
+  "version": "1.0.0",
+  "description": "konwerter walut, api - http://api.nbp.pl/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilia-bielousov/konwerter-walut.git"
+  },
+  "keywords": [
+    "konwerter",
+    "walut",
+    "server",
+    "json",
+    "xmlhttprequest",
+    "fetch",
+    "javascript",
+    "html",
+    "css",
+    "scss"
+  ],
+  "author": "Ilia Bielousov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilia-bielousov/konwerter-walut/issues"
+  },
+  "homepage": "https://github.com/ilia-bielousov/konwerter-walut#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
+    "node-sass": "^8.0.0",
+    "sass": "^1.58.0"
+  }
+}
