@@ -9,6 +9,32 @@
   <link rel="stylesheet" href="./assets/css/flags.css">
 
   <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'Sales', 'Expenses'],
+        ['2004',  1000,      400],
+        ['2005',  1170,      460],
+        ['2006',  660,       1120],
+        ['2007',  1030,      540]
+      ]);
+
+      var options = {
+        title: 'Company Performance',
+        curveType: 'function',
+        legend: { position: 'bottom' }
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+      chart.draw(data, options);
+    }
+  </script>
   <title>konwerter walut</title>
 </head>
 
@@ -65,7 +91,7 @@
                       Data:
                     </span>
                     <div class="konwerter__choose-day">
-                      <input type="date" name="data" id="date" value="2022-07-21">
+                      <input type="date" name="data" id="date" value="" min="2002-01-02" max="">
                     </div>
                   </div>
                 </div>
@@ -76,7 +102,7 @@
                     <i class="flag-RU"></i>
                   </div>
                   <div class="konwerter__walute">
-                    RUB
+                    <span>RUB</span>
                   </div>
                   <input type="text" class="konwerter__name-walute" value="Российский рубль">
                   <div class="konwerter__arrow">
@@ -102,7 +128,7 @@
           </article>
           <aside class="aside" id="aside">
             <div class="grafik_content">
-              grafik
+              <div id="curve_chart" style="width: 900px; height: 500px"></div>
             </div>
           </aside>
         </div>

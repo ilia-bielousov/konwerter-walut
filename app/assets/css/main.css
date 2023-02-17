@@ -86,7 +86,7 @@ body {
   align-items: center;
 }
 .konwerter__choose-walute:hover {
-  border: 2px solid #000;
+  border: 1px solid #000;
 }
 .konwerter__flag {
   margin-right: 20px;
@@ -107,12 +107,13 @@ body {
   z-index: 1;
   width: 100%;
   padding: 10px 5px;
-  border: none;
+  border: 1px solid #fff;
   border-radius: 5px;
   font-size: 18px;
+  transition: 0.3s;
 }
 .konwerter__name-walute:focus {
-  border: 2px solid #000;
+  border: 1px solid #000;
   outline: none;
 }
 .konwerter__arrow {
@@ -125,6 +126,7 @@ body {
   background-color: #cedfee;
 }
 .konwerter__input-number {
+  transition: 0.3s;
   background-color: aliceblue;
 }
 .konwerter__input-value {
