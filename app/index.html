@@ -11,30 +11,7 @@
   <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Year', 'Sales', 'Expenses'],
-        ['2004',  1000,      400],
-        ['2005',  1170,      460],
-        ['2006',  660,       1120],
-        ['2007',  1030,      540]
-      ]);
-
-      var options = {
-        title: 'Company Performance',
-        curveType: 'function',
-        legend: { position: 'bottom' }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-      chart.draw(data, options);
-    }
-  </script>
   <title>konwerter walut</title>
 </head>
 
@@ -128,7 +105,7 @@
           </article>
           <aside class="aside" id="aside">
             <div class="grafik_content">
-              <div id="curve_chart" style="width: 900px; height: 500px"></div>
+              <div id="grafic"></div>
             </div>
           </aside>
         </div>
@@ -145,6 +122,6 @@
   </div>
 </body>
 
-<script src="./assets/js/script.js"></script>
+<script src="./script.js"></script>
 
 </html>

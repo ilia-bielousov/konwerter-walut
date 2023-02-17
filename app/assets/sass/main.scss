@@ -50,18 +50,13 @@ body {
   }
 }
 
-.main {
-  .container {
-    display: flex;
-  }
-}
-
 .article {
+  margin: 0px auto;
   width: 70%;
 }
 
-.aside {
-  width: 30%;
+#curve_chart {
+  margin: 0px auto;
 }
 
 .grafik_content {
@@ -88,7 +83,6 @@ body {
     border: 1px solid gray;
     border-radius: 5px;
     cursor: pointer;
-    // transition: 0.2s;
     box-sizing: border-box;
   }
 

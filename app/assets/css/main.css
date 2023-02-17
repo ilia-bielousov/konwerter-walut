@@ -46,16 +46,13 @@ body {
   color: #000;
 }
 
-.main .container {
-  display: flex;
-}
-
 .article {
+  margin: 0px auto;
   width: 70%;
 }
 
-.aside {
-  width: 30%;
+#curve_chart {
+  margin: 0px auto;
 }
 
 .grafik_content {
