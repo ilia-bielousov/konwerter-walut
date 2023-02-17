@@ -102,19 +102,25 @@ body {
   }
 
   &__flag {
-    width: 60px;
-    height: 25px;
-    // margin-right: 20px;
-    // background-color: #f00;
+    margin-right: 20px;
   }
 
   &__walute {
-    margin-right: 20px;
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
     font-size: 22px;
     font-weight: 500;
+
+    span {
+      margin-right: 10px;
+    }
   }
 
   &__name-walute {
+    position: relative;
+    z-index: 1;
     width: 100%;
     padding: 10px 5px;
     border: none;
@@ -125,6 +131,13 @@ body {
       border: 2px solid #000;
       outline: none;
     }
+  }
+
+  &__arrow {
+    position: absolute;
+    z-index: 1;
+    right: 15px;
+    transform: rotate(90deg);
   }
 
   &__input-number:hover {

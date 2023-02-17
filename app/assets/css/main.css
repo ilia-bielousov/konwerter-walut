@@ -89,15 +89,22 @@ body {
   border: 2px solid #000;
 }
 .konwerter__flag {
-  width: 60px;
-  height: 25px;
+  margin-right: 20px;
 }
 .konwerter__walute {
-  margin-right: 20px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
   font-size: 22px;
   font-weight: 500;
 }
+.konwerter__walute span {
+  margin-right: 10px;
+}
 .konwerter__name-walute {
+  position: relative;
+  z-index: 1;
   width: 100%;
   padding: 10px 5px;
   border: none;
@@ -107,6 +114,12 @@ body {
 .konwerter__name-walute:focus {
   border: 2px solid #000;
   outline: none;
+}
+.konwerter__arrow {
+  position: absolute;
+  z-index: 1;
+  right: 15px;
+  transform: rotate(90deg);
 }
 .konwerter__input-number:hover {
   background-color: #cedfee;
