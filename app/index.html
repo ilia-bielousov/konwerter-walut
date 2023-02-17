@@ -2,97 +2,107 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>konwerter walut</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <title>konwerter walut</title>
 </head>
 
 <body>
-    <div class="wrap">
-        <div class="content">
-            <header class="header" id="header">
-                <div class="container">
-                    <h1 class="header__title">
-                        Konwerter walut
-                    </h1>
-                    <p class="header__text">
-                        żródło API walut: <a href="http://api.nbp.pl/">http://api.nbp.pl/</a>
-                    </p>
-                </div>
-            </header>
-            <main class="main" id="main">
-                <div class="container">
-                    <article class="article" id="article">
-                        <div class="main main__konwerter konwerter">
-                            <div class="konwerter__left-section">
-                                <div class="konwerter__choose-walute">
-                                    USD
-                                </div>
-                                <div class="konwerter__input-number">
-                                    1
-                                </div>
-                                <div class="konwerter__offen-used">
-                                    <span>
-                                        USD
-                                    </span>
-                                    <span>
-                                        EUR
-                                    </span>
-                                    <span>
-                                        RUB
-                                    </span>
-                                </div>
-                                <div class="konwerter__calendar">
-                                    <div class="konwerter__calendar-inner">
-                                        <span class="konwerter__date">
-                                            Data
-                                        </span>
-                                        <div class="konwerter__choose-day">
-                                            11-02-23
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="konwerter__right-section">
-                                <div class="konwerter__choose-walute">
-                                    RUB
-                                </div>
-                                <div class="konwerter__input-number">
-                                    1
-                                </div>
-                                <div class="konwerter__offen-used">
-                                    <div class="konwerter__offen-used">
-                                        <span>
-                                            USD
-                                        </span>
-                                        <span>
-                                            EUR
-                                        </span>
-                                        <span>
-                                            RUB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    <aside class="aside" id="aside">
-                        <div class="grafik_content">
-                            grafik
-                        </div>
-                    </aside>
-                </div>
-            </main>
+  <div class="wrap">
+    <div class="content">
+      <header class="header" id="header">
+        <div class="container">
+          <h1 class="header__title">
+            Konwerter walut
+          </h1>
+          <p class="header__text">
+            żródło API walut: <a href="http://api.nbp.pl/">http://api.nbp.pl/</a>
+          </p>
         </div>
-
-        <footer class="footer">
-            <div class="container">
-                footer
+      </header>
+      <main class="main" id="main">
+        <div class="container">
+          <article class="article" id="article">
+            <div class="main main__konwerter konwerter">
+              <div class="konwerter__left-section">
+                <div class="konwerter__choose-walute">
+                  <div class="konwerter__flag">
+                  </div>
+                  <div class="konwerter__walute">
+                    RUB
+                  </div>
+                  <input type="text" class="konwerter__name-walute" value="Российский рубль">
+                  <div class="konwerter__arrow">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="konwerter__input-number">
+                  <input type="text" class="konwerter__input-value" value="1">
+                </div>
+                <div class="konwerter__offen-used">
+                  <span>
+                    USD
+                  </span>
+                  <span>
+                    EUR
+                  </span>
+                  <span>
+                    RUB
+                  </span>
+                </div>
+                <div class="konwerter__calendar">
+                  <div class="konwerter__calendar-inner">
+                    <span class="konwerter__date">
+                      Data
+                    </span>
+                    <div class="konwerter__choose-day">
+                      11-02-23
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="konwerter__right-section">
+                <div class="konwerter__choose-walute">
+                  RUB
+                </div>
+                <div class="konwerter__input-number">
+                  1
+                </div>
+                <div class="konwerter__offen-used">
+                  <div class="konwerter__offen-used">
+                    <span>
+                      USD
+                    </span>
+                    <span>
+                      EUR
+                    </span>
+                    <span>
+                      RUB
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
-        </footer>
+          </article>
+          <aside class="aside" id="aside">
+            <div class="grafik_content">
+              grafik
+            </div>
+          </aside>
+        </div>
+      </main>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        footer
+      </div>
+    </footer>
+  </div>
 </body>
+
+<script src="./assets/js/script.js"></script>
 
 </html>

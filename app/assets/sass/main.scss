@@ -1,0 +1,180 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0px 15px;
+}
+
+.header {
+  padding: 50px 0px 75px;
+
+  &__title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  &__text a {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+  }
+}
+
+.main {
+  .container {
+    display: flex;
+  }
+}
+
+.article {
+  width: 70%;
+}
+
+.aside {
+  width: 30%;
+}
+
+.grafik_content {
+  padding: 15px;
+}
+
+.konwerter {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 10px;
+
+  &__left-section,
+  &__right-section {
+    width: 50%;
+    padding: 0px 10px;
+  }
+
+  &__choose-walute,
+  &__input-number {
+    height: 70px;
+    margin-bottom: 10px;
+    padding: 15px 50px 15px 10px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    // transition: 0.2s;
+    box-sizing: border-box;
+  }
+
+  &__choose-walute {
+    display: flex;
+    align-items: center;
+  }
+
+  &__choose-walute:hover {
+    border: 2px solid #000;
+  }
+
+  &__flag {
+    width: 60px;
+    height: 25px;
+    margin-right: 20px;
+    background-color: #f00;
+  }
+
+  &__walute {
+    margin-right: 20px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  &__name-walute {
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    font-size: 18px;
+
+    &:focus {
+      border: 2px solid #000;
+      outline: none;
+    }
+  }
+
+  &__input-number:hover {
+    background-color: #cedfee;
+  }
+
+  &__input-number {
+    background-color: aliceblue;
+  }
+
+  &__input-value {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 0px;
+    font-size: 22px;
+    background-color: aliceblue;
+    
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__offen-used {
+    margin-bottom: 25px;
+  }
+
+  &__offen-used span {
+    margin-right: 25px;
+    padding: 6px;
+    border-radius: 35%;
+    font-size: 22px;
+    color: gray;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  &__offen-used span:hover {
+    background-color: #cedfee;
+  }
+
+  &__calendar {
+    font-size: 18px;
+  }
+
+  &__calendar-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__date {
+
+  }
+
+  &__choose-day {
+    grid-column-start: 3;
+  }
+}
