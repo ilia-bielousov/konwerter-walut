@@ -36,8 +36,11 @@ body {
   font-size: 40px;
   line-height: 48px;
 }
-.header__text a {
+.header__text {
   font-size: 20px;
+}
+.header__text a {
+  font-size: 22px;
   font-weight: bold;
   text-decoration: none;
   color: #000;
@@ -88,8 +91,6 @@ body {
 .konwerter__flag {
   width: 60px;
   height: 25px;
-  margin-right: 20px;
-  background-color: #f00;
 }
 .konwerter__walute {
   margin-right: 20px;
@@ -100,6 +101,7 @@ body {
   width: 100%;
   padding: 10px 5px;
   border: none;
+  border-radius: 5px;
   font-size: 18px;
 }
 .konwerter__name-walute:focus {
@@ -137,6 +139,7 @@ body {
 }
 .konwerter__offen-used span:hover {
   background-color: #cedfee;
+  color: #000;
 }
 .konwerter__calendar {
   font-size: 18px;
@@ -147,4 +150,18 @@ body {
 }
 .konwerter__choose-day {
   grid-column-start: 3;
+}
+
+.footer {
+  background-color: aliceblue;
+}
+.footer__content {
+  padding: 12px;
+  text-align: center;
+}
+.footer a {
+  font-size: 22px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
 }

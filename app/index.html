@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/flags.css">
   <title>konwerter walut</title>
 </head>
 
@@ -18,7 +19,10 @@
             Konwerter walut
           </h1>
           <p class="header__text">
-            żródło API walut: <a href="http://api.nbp.pl/">http://api.nbp.pl/</a>
+            Żródło API walut: <a href="http://api.nbp.pl/" target="_blank">http://api.nbp.pl/</a>
+          </p>
+          <p class="header__text">
+            Flags git: <a href="https://github.com/artpolikarpov/Flags" target="_blank">flags</a>
           </p>
         </div>
       </header>
@@ -29,6 +33,7 @@
               <div class="konwerter__left-section">
                 <div class="konwerter__choose-walute">
                   <div class="konwerter__flag">
+                    <i class="flag-RU"></i>
                   </div>
                   <div class="konwerter__walute">
                     RUB
@@ -55,33 +60,40 @@
                 <div class="konwerter__calendar">
                   <div class="konwerter__calendar-inner">
                     <span class="konwerter__date">
-                      Data
+                      Data:
                     </span>
                     <div class="konwerter__choose-day">
-                      11-02-23
+                      <input type="date" name="data" id="date" value="2022-07-21">
                     </div>
                   </div>
                 </div>
               </div>
               <div class="konwerter__right-section">
                 <div class="konwerter__choose-walute">
-                  RUB
+                  <div class="konwerter__flag">
+                    <i class="flag-RU"></i>
+                  </div>
+                  <div class="konwerter__walute">
+                    RUB
+                  </div>
+                  <input type="text" class="konwerter__name-walute" value="Российский рубль">
+                  <div class="konwerter__arrow">
+                    <span></span>
+                  </div>
                 </div>
                 <div class="konwerter__input-number">
-                  1
+                  <input type="text" class="konwerter__input-value" value="1">
                 </div>
                 <div class="konwerter__offen-used">
-                  <div class="konwerter__offen-used">
-                    <span>
-                      USD
-                    </span>
-                    <span>
-                      EUR
-                    </span>
-                    <span>
-                      RUB
-                    </span>
-                  </div>
+                  <span>
+                    USD
+                  </span>
+                  <span>
+                    EUR
+                  </span>
+                  <span>
+                    RUB
+                  </span>
                 </div>
               </div>
             </div>
@@ -97,7 +109,9 @@
 
     <footer class="footer">
       <div class="container">
-        footer
+        <div class="footer__content">
+          Student's project; git: <a href="https://github.com/ilia-bielousov/konwerter-walut">link</a>
+        </div>
       </div>
     </footer>
   </div>

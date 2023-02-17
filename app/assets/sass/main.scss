@@ -37,9 +37,13 @@ body {
     font-size: 40px;
     line-height: 48px;
   }
+  
+  &__text {
+    font-size: 20px;
+  }
 
   &__text a {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     text-decoration: none;
     color: #000;
@@ -100,8 +104,8 @@ body {
   &__flag {
     width: 60px;
     height: 25px;
-    margin-right: 20px;
-    background-color: #f00;
+    // margin-right: 20px;
+    // background-color: #f00;
   }
 
   &__walute {
@@ -114,6 +118,7 @@ body {
     width: 100%;
     padding: 10px 5px;
     border: none;
+    border-radius: 5px;
     font-size: 18px;
 
     &:focus {
@@ -159,6 +164,7 @@ body {
 
   &__offen-used span:hover {
     background-color: #cedfee;
+    color: #000;
   }
 
   &__calendar {
@@ -177,4 +183,21 @@ body {
   &__choose-day {
     grid-column-start: 3;
   }
+}
+
+.footer {
+  background-color: aliceblue;
+
+  &__content {
+    padding: 12px;
+    text-align: center;
+  }
+
+  a {
+    font-size: 22px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
 }
