@@ -38,14 +38,25 @@
               <div class="konwerter__left-section">
                 <div class="konwerter__choose-walute">
                   <div class="konwerter__flag">
-                    <i class="flag-RU"></i>
+                    <i class="flag-US"></i>
                   </div>
                   <div class="konwerter__walute">
-                    <span>RUB</span>
-                    <input type="text" class="konwerter__name-walute" value="Российский рубль">
-                    <div class="konwerter__arrow">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z"/></svg>
-                    </div>
+                    <span>USD</span>
+                    <select name="#" id="waluts" class="konwerter__name-walute">
+                      <option data-flag="flag-US" value="USD">Dolar amerykański</option>
+                      <option data-flag="flag-AUS" value="AUD">Dolar australijski</option>
+                      <option data-flag="flag-CAN" value="CAD">Dolar kanadyjski</option>
+                      <option data-flag="flag-EU" value="EUR">Euro</option>
+                      <option data-flag="flag-HUN" value="HUF">Forint (Węgry)</option>
+                      <option data-flag="flag-CH" value="CHF">Frank szwajcarski</option>
+                      <option data-flag="flag-GBR" value="GBP">Funt szterling</option>
+                      <option data-flag="flag-JP" value="JPY">Jen (Japonia)</option>
+                      <option data-flag="flag-CZE" value="CZK">Korona czeska</option>
+                      <option data-flag="flag-DNK" value="DKK">Korona duńska</option>
+                      <option data-flag="flag-NOR" value="NOK">Korona norweska</option>
+                      <option data-flag="flag-SWE" value="SEK">Korona szwedzka</option>
+                      <option data-flag="flag-PL" value="PLN">Złoty</option>
+                    </select>
                   </div>
                 </div>
                 <div class="konwerter__input-number">
@@ -79,11 +90,22 @@
                     <i class="flag-RU"></i>
                   </div>
                   <div class="konwerter__walute">
-                    <span>RUB</span>
-                  </div>
-                  <input type="text" class="konwerter__name-walute" value="Российский рубль">
-                  <div class="konwerter__arrow">
-                    <span></span>
+                    <span>USD</span>
+                    <select name="#" id="waluts" class="konwerter__name-walute">
+                      <option data-flag="flag-US" value="USD">Dolar amerykański</option>
+                      <option data-flag="flag-AUS" value="AUD">Dolar australijski</option>
+                      <option data-flag="flag-CAN" value="CAD">Dolar kanadyjski</option>
+                      <option data-flag="flag-EU" value="EUR">Euro</option>
+                      <option data-flag="flag-HUN" value="HUF">Forint (Węgry)</option>
+                      <option data-flag="flag-CH" value="CHF">Frank szwajcarski</option>
+                      <option data-flag="flag-GBR" value="GBP">Funt szterling</option>
+                      <option data-flag="flag-JP" value="JPY">Jen (Japonia)</option>
+                      <option data-flag="flag-CZE" value="CZK">Korona czeska</option>
+                      <option data-flag="flag-DNK" value="DKK">Korona duńska</option>
+                      <option data-flag="flag-NOR" value="NOK">Korona norweska</option>
+                      <option data-flag="flag-SWE" value="SEK">Korona szwedzka</option>
+                      <option data-flag="flag-PL" value="PLN">Złoty</option>
+                    </select>
                   </div>
                 </div>
                 <div class="konwerter__input-number">
@@ -105,7 +127,7 @@
           </article>
           <aside class="aside" id="aside">
             <div class="grafik_content">
-              <div id="grafic"></div>
+              <div id="grafic" style="width: 900px; height: 500px; margin: 0px auto;"></div>
             </div>
           </aside>
         </div>
