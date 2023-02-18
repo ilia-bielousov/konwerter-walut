@@ -1,4 +1,4 @@
-const convert = () => {
+const Convert = () => {
   function getValue(data) {
     let arrayOfValues = [];
 
@@ -10,6 +10,13 @@ const convert = () => {
       }
     }
   }
+
+  inputsValue.forEach((input, i) => {
+    input.addEventListener('input', function (e) {
+      e.target.value = e.target.value.replace(/\D/g, '');
+      
+    });
+  });
 };
 
-export default convert();
+export default Convert;
