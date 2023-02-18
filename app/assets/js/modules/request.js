@@ -9,52 +9,55 @@ const Request = (current = 'C', baseUrl = 'http://api.nbp.pl/api/exchangerates/t
   let currentMouth = inputDate.value;
   let daysInMouth = new Date(`${inputDate.value}-12`).daysInMonth();
 
-  // if (new Date().getDate() < daysInMouth) { // доделать условие
-  //   daysInMouth = new Date().getDate() - 1;
-  // }
+  inputDate.addEventListener('change', () => {
+    currentMouth = inputDate.value;
+    daysInMouth = new Date(`${inputDate.value}-12`).daysInMonth();
 
-  getResource(`${baseUrl}/${current}/${currentMouth}-01/${currentMouth}-${daysInMouth}`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      google.charts.load('current', { 'packages': ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
+    if (new Date().getMonth() == new Date(currentMouth).getMonth()) {
+      daysInMouth = new Date().getDate();
+    } 
 
-      let outData = [];
+    getResource(`${baseUrl}/${current}/${currentMouth}-01/${currentMouth}-${daysInMouth}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
 
-      for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < 2;) {
-          let temp = [];
-          temp.push(data[i].effectiveDate)
-          j += 1;
-          temp.push(data[i].rates[0].bid);
-          outData.push(temp);
-          j += 1;
-        } 
-      }
+        let outData = [];
 
-      outData.unshift(['Data', 'kurs']);
-    
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable(outData);
-    
-        var options = {
-          title: '',
-          curveType: 'function',
-          legend: { position: 'bottom' },
-          hAxis: {
-            textPosition: 'none'
+        for (let i = 0; i < data.length; i++) {
+          for (let j = 0; j < 2;) {
+            let temp = [];
+            temp.push(data[i].effectiveDate)
+            j += 1;
+            temp.push(data[i].rates[0].bid);
+            outData.push(temp);
+            j += 1;
           }
-        };
-    
-        var chart = new google.visualization.LineChart(document.getElementById('grafic'));
-    
-        chart.draw(data, options);
-      }
-    })
-    .catch(err => console.error(err));
+        }
+
+        outData.unshift(['Data', 'kurs']);
+
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable(outData);
+
+          var options = {
+            title: '',
+            curveType: 'function',
+            legend: { position: 'bottom' },
+            hAxis: {
+              textPosition: 'none'
+            }
+          };
+
+          var chart = new google.visualization.LineChart(document.getElementById('grafic'));
+
+          chart.draw(data, options);
+        }
+      })
+  });
 
   async function getResource(url) {
     const res = await fetch(`${url}`);
