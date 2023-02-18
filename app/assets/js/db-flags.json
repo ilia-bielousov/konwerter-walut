@@ -1,14 +1,14 @@
 {
-  "USD": "US dolar amerykański",
-  "AUD": "AUS dolar australijski",
-  "CAD": "CAN dolar kanadyjski",
-  "EUR": "EU euro ",
-  "HUF": "HUN forint (Węgry)",
-  "CHF": "CH frank szwajcarski",
-  "GBP": "GBR funt szterling",
-  "JPY": "JP jen (Japonia)",
-  "CZK": "CZE korona czeska",
-  "DKK": "DNK korona duńska",
-  "NOK": "NOR korona norweska",
-  "SEK": "SWE korona szwedzka"
+  "USD": "US",
+  "AUD": "AUS",
+  "CAD": "CAN",
+  "EUR": "EU",
+  "HUF": "HUN",
+  "CHF": "CH",
+  "GBP": "GBR",
+  "JPY": "JP",
+  "CZK": "CZE",
+  "DKK": "DNK",
+  "NOK": "NOR",
+  "SEK": "SWE"
 }
