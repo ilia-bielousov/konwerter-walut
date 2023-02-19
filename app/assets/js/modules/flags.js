@@ -1,3 +1,5 @@
+import Request from "./request";
+
 const Flags = () => {
   const flagImage = document.querySelectorAll('.konwerter__flag i');
   const select = document.querySelectorAll('.konwerter__name-walute');
@@ -45,9 +47,19 @@ const Flags = () => {
   select.forEach((item, i) => {
     item.addEventListener('change', (event) => {
       const str = event.target.value;
+      const temp = waluteName[i].textContent;
+      const value = new Request(`http://api.nbp.pl/api/exchangerates/rates/C/${event.target.value}/`);
 
-      waluteName[i].innerHTML = event.target.value;
+      waluteName[i].textContent = event.target.value;
       flagImage[i].classList.value = `flag-${flags[str]}`;
+
+      value.getResource()
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
     });
   });
 };

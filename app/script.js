@@ -7,16 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./app/assets/js/modules/date.js":
-/*!***************************************!*\
-  !*** ./app/assets/js/modules/date.js ***!
-  \***************************************/
+/***/ "./app/assets/js/modules/dateFunc.js":
+/*!*******************************************!*\
+  !*** ./app/assets/js/modules/dateFunc.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst DateFunc = () => {\n  const currentDate = document.querySelector('.konwerter__choose-day input'); // дата \n  const today = new Date();\n  let year = today.getFullYear();\n  let month = today.getMonth() + 1;\n  let stringOfDate = '';\n  if (month < 10) {\n    month = `0${month}`;\n    stringOfDate = `${year}-${month}`;\n  }\n  currentDate.value = stringOfDate;\n  currentDate.max = stringOfDate;\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DateFunc);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/date.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst DateFunc = () => {\n  const currentDate = document.querySelector('.konwerter__choose-day input'); // дата \n\n  let stringOfDate = '';\n  if (new Date().getMonth() < 9) {\n    stringOfDate = `${new Date().getFullYear()}-0${new Date().getMonth() + 1}-${new Date().getDay()}`;\n  } else {\n    stringOfDate = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDay()}`;\n  }\n  if (new Date().getDay() < 10) {\n    stringOfDate = `${new Date().getFullYear()}-0${new Date().getMonth() + 1}-0${new Date().getDay()}`;\n  } else {\n    stringOfDate = `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDay()}`;\n  }\n  currentDate.value = stringOfDate;\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DateFunc);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/dateFunc.js?");
 
 /***/ }),
 
@@ -26,7 +26,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Flags = () => {\n  const flagImage = document.querySelectorAll('.konwerter__flag i');\n  const select = document.querySelectorAll('.konwerter__name-walute');\n  const waluteName = document.querySelectorAll('.konwerter__walute span');\n  const offenUsed = document.querySelectorAll('.konwerter__offen-used span');\n  const selectOptions = document.querySelectorAll('.konwerter__name-walute');\n  const flags = {\n    \"USD\": \"US\",\n    \"AUD\": \"AU\",\n    \"CAD\": \"CA\",\n    \"EUR\": \"EU\",\n    \"HUF\": \"HU\",\n    \"CHF\": \"CH\",\n    \"GBP\": \"GB\",\n    \"JPY\": \"JP\",\n    \"CZK\": \"CZ\",\n    \"DKK\": \"DK\",\n    \"NOK\": \"NO\",\n    \"SEK\": \"SE\",\n    \"PLN\": \"PL\"\n  };\n  offenUsed.forEach((item, i) => {\n    item.addEventListener('click', event => {\n      const str = event.target.textContent.trim();\n      const doIt = num => {\n        waluteName[num].innerHTML = str;\n        flagImage[num].classList.value = `flag-${flags[str]}`;\n        selectOptions[num].childNodes.forEach(child => {\n          if (child.value == str) {\n            child.selected = true;\n          }\n        });\n      };\n      if (i < 4) {\n        doIt(0);\n      } else {\n        doIt(1);\n      }\n    });\n  });\n  select.forEach((item, i) => {\n    item.addEventListener('change', event => {\n      const str = event.target.value;\n      waluteName[i].innerHTML = event.target.value;\n      flagImage[i].classList.value = `flag-${flags[str]}`;\n    });\n  });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Flags);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/flags.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./request */ \"./app/assets/js/modules/request.js\");\n\nconst Flags = () => {\n  const flagImage = document.querySelectorAll('.konwerter__flag i');\n  const select = document.querySelectorAll('.konwerter__name-walute');\n  const waluteName = document.querySelectorAll('.konwerter__walute span');\n  const offenUsed = document.querySelectorAll('.konwerter__offen-used span');\n  const selectOptions = document.querySelectorAll('.konwerter__name-walute');\n  const flags = {\n    \"USD\": \"US\",\n    \"AUD\": \"AU\",\n    \"CAD\": \"CA\",\n    \"EUR\": \"EU\",\n    \"HUF\": \"HU\",\n    \"CHF\": \"CH\",\n    \"GBP\": \"GB\",\n    \"JPY\": \"JP\",\n    \"CZK\": \"CZ\",\n    \"DKK\": \"DK\",\n    \"NOK\": \"NO\",\n    \"SEK\": \"SE\",\n    \"PLN\": \"PL\"\n  };\n  offenUsed.forEach((item, i) => {\n    item.addEventListener('click', event => {\n      const str = event.target.textContent.trim();\n      const doIt = num => {\n        waluteName[num].innerHTML = str;\n        flagImage[num].classList.value = `flag-${flags[str]}`;\n        selectOptions[num].childNodes.forEach(child => {\n          if (child.value == str) {\n            child.selected = true;\n          }\n        });\n      };\n      if (i < 4) {\n        doIt(0);\n      } else {\n        doIt(1);\n      }\n    });\n  });\n  select.forEach((item, i) => {\n    item.addEventListener('change', event => {\n      const str = event.target.value;\n      const temp = waluteName[i].textContent;\n      const value = new _request__WEBPACK_IMPORTED_MODULE_0__[\"default\"](`http://api.nbp.pl/api/exchangerates/rates/C/${event.target.value}/`);\n      waluteName[i].textContent = event.target.value;\n      flagImage[i].classList.value = `flag-${flags[str]}`;\n      value.getResource().then(response => {\n        return response.json();\n      }).then(data => {\n        console.log(data);\n      });\n    });\n  });\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Flags);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/flags.js?");
+
+/***/ }),
+
+/***/ "./app/assets/js/modules/grafic.js":
+/*!*****************************************!*\
+  !*** ./app/assets/js/modules/grafic.js ***!
+  \*****************************************/
+/***/ (() => {
+
+eval("class Grafic {\n  constructor() {}\n}\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/grafic.js?");
 
 /***/ }),
 
@@ -36,7 +47,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Request = function () {\n  let current = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'C';\n  let baseUrl = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'http://api.nbp.pl/api/exchangerates/tables';\n  let date = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';\n  const inputDate = document.querySelector('.konwerter__choose-day input');\n  Date.prototype.daysInMonth = function () {\n    return 32 - new Date(this.getFullYear(), this.getMonth(), 32).getDate();\n  };\n  let currentMouth = inputDate.value;\n  let daysInMouth = new Date(`${inputDate.value}-12`).daysInMonth();\n  inputDate.addEventListener('change', () => {\n    currentMouth = inputDate.value;\n    daysInMouth = new Date(`${inputDate.value}-12`).daysInMonth();\n    if (new Date().getMonth() == new Date(currentMouth).getMonth()) {\n      daysInMouth = new Date().getDate();\n    }\n    getResource(`${baseUrl}/${current}/${currentMouth}-01/${currentMouth}-${daysInMouth}`).then(response => {\n      return response.json();\n    }).then(data => {\n      google.charts.load('current', {\n        'packages': ['corechart']\n      });\n      google.charts.setOnLoadCallback(drawChart);\n      let outData = [];\n      for (let i = 0; i < data.length; i++) {\n        for (let j = 0; j < 2;) {\n          let temp = [];\n          temp.push(data[i].effectiveDate);\n          j += 1;\n          temp.push(data[i].rates[0].bid);\n          outData.push(temp);\n          j += 1;\n        }\n      }\n      outData.unshift(['Data', 'kurs']);\n      function drawChart() {\n        var data = google.visualization.arrayToDataTable(outData);\n        var options = {\n          title: '',\n          curveType: 'function',\n          legend: {\n            position: 'bottom'\n          },\n          hAxis: {\n            textPosition: 'none'\n          }\n        };\n        var chart = new google.visualization.LineChart(document.getElementById('grafic'));\n        chart.draw(data, options);\n      }\n    });\n  });\n  async function getResource(url) {\n    const res = await fetch(`${url}`);\n    if (!res.ok) {\n      throw new Error(`Could not fetch ${url}, status: ${res.status}`);\n    }\n    return res;\n  }\n  ;\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Request);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/request.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass Request {\n  constructor(url) {\n    this.url = url;\n  }\n  async getResource() {\n    const res = await fetch(`${this.url}`);\n    if (!res.ok) {\n      throw new Error(`Could not fetch ${this.url}, status: ${res.status}`);\n    }\n    return res;\n  }\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Request);\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/modules/request.js?");
 
 /***/ }),
 
@@ -46,7 +58,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/request */ \"./app/assets/js/modules/request.js\");\n/* harmony import */ var _modules_flags__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/flags */ \"./app/assets/js/modules/flags.js\");\n/* harmony import */ var _modules_date__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/date */ \"./app/assets/js/modules/date.js\");\n\n\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  'use strict';\n\n  (0,_modules_request__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  (0,_modules_flags__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n  (0,_modules_date__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n});\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/script.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_flags__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/flags */ \"./app/assets/js/modules/flags.js\");\n/* harmony import */ var _modules_dateFunc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/dateFunc */ \"./app/assets/js/modules/dateFunc.js\");\n/* harmony import */ var _modules_grafic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/grafic */ \"./app/assets/js/modules/grafic.js\");\n/* harmony import */ var _modules_grafic__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_grafic__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  'use strict';\n\n  (0,_modules_flags__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  (0,_modules_dateFunc__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n  _modules_grafic__WEBPACK_IMPORTED_MODULE_2___default()();\n});\n\n//# sourceURL=webpack://konwerter_walut/./app/assets/js/script.js?");
 
 /***/ })
 
@@ -77,6 +90,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports

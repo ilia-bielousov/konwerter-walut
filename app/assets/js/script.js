@@ -1,12 +1,11 @@
-import Request from './modules/request';
 import Flags from './modules/flags';
-import DateFunc from './modules/date';
+import DateFunc from './modules/dateFunc';
+import Grafic from './modules/grafic';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  Request();
   Flags();
   DateFunc();
-
+  Grafic();
 });
