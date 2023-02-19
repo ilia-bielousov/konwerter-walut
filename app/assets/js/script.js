@@ -1,11 +1,11 @@
 import Flags from './modules/flags';
-import DateFunc from './modules/dateFunc';
+import DateClass from './modules/dateClass';
 import Grafic from './modules/grafic';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  Flags();
-  DateFunc();
-  Grafic();
+  new Flags().classLogic();
+  new DateClass().classLogic();
+  new Grafic().classLogic();
 });

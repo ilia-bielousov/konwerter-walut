@@ -1,67 +1,52 @@
+import Components from "./components";
 import Request from "./request";
 
-const Flags = () => {
-  const flagImage = document.querySelectorAll('.konwerter__flag i');
-  const select = document.querySelectorAll('.konwerter__name-walute');
-  const waluteName = document.querySelectorAll('.konwerter__walute span');
-  const offenUsed = document.querySelectorAll('.konwerter__offen-used span');
-  const selectOptions = document.querySelectorAll('.konwerter__name-walute');
-  const flags = {
-    "USD": "US",
-    "AUD": "AU",
-    "CAD": "CA",
-    "EUR": "EU",
-    "HUF": "HU",
-    "CHF": "CH",
-    "GBP": "GB",
-    "JPY": "JP",
-    "CZK": "CZ",
-    "DKK": "DK",
-    "NOK": "NO",
-    "SEK": "SE",
-    "PLN": "PL"
-  };
+class Flags extends Components {
+  constructor() {
+    super();
+  }
 
-  offenUsed.forEach((item, i) => {
-    item.addEventListener('click', (event) => {
-      const str = event.target.textContent.trim();
-      
-      const doIt = (num) => {
-        waluteName[num].innerHTML = str;
-        flagImage[num].classList.value = `flag-${flags[str]}`;
-        selectOptions[num].childNodes.forEach(child => {
-          if (child.value == str) {
-            child.selected = true;
-          }
+  classLogic() {
+    this.offenUsed.forEach((item, i) => {
+      item.addEventListener('click', (event) => {
+        const str = event.target.textContent.trim();
+        
+        const doIt = (num) => {
+          this.waluteName[num].innerHTML = str;
+          this.flagImages[num].classList.value = `flag-${flags[str]}`;
+          this.select[num].childNodes.forEach(child => {
+            if (child.value == str) {
+              child.selected = true;
+            }
+          })
+        };
+  
+        if (i < 4) {
+          doIt(0);
+        } else {
+          doIt(1);
+        }
+      });
+    });
+  
+    this.select.forEach((item, i) => {
+      item.addEventListener('change', (event) => {
+        const str = event.target.value;
+        const value = new Request(`http://api.nbp.pl/api/exchangerates/rates/C/${event.target.value}/`);
+  
+        this.waluteName[i].textContent = event.target.value;
+        this.flagImages[i].classList.value = `flag-${this.flags[str]}`;
+  
+        value.getResource()
+        .then((response) => {
+          return response.json();
         })
-      };
-
-      if (i < 4) {
-        doIt(0);
-      } else {
-        doIt(1);
-      }
+        .then((data) => {
+          console.log(data);
+        })
+      });
     });
-  });
-
-  select.forEach((item, i) => {
-    item.addEventListener('change', (event) => {
-      const str = event.target.value;
-      const temp = waluteName[i].textContent;
-      const value = new Request(`http://api.nbp.pl/api/exchangerates/rates/C/${event.target.value}/`);
-
-      waluteName[i].textContent = event.target.value;
-      flagImage[i].classList.value = `flag-${flags[str]}`;
-
-      value.getResource()
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-    });
-  });
-};
+  }
+}
 
 export default Flags;
