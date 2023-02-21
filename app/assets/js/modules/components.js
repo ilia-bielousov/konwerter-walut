@@ -21,6 +21,20 @@ class Components {
       "PLN": "PL"
     };
   }
+  
+  giveDate() {
+    Date.prototype.daysInMonth = function () {
+      return 32 - new Date(this.getFullYear(), this.getMonth(), 32).getDate();
+    };
+
+    this.currentMouth = this.currentDate.value;
+    this.currentMouth = this.currentMouth.slice(0, 7);
+    this.daysInMouth = new Date(`${this.currentDate.value}`).daysInMonth();
+
+    if (new Date().getMonth() == new Date(this.currentMouth).getMonth()) {
+      this.daysInMouth = new Date().getDate();
+    }
+  }
 }
 
 export default Components;

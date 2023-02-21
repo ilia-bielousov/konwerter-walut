@@ -6,13 +6,19 @@ class DateClass extends Components {
   }
 
   classLogic() {
-    let stringOfDate = `${new Date().getFullYear()}-0${new Date().getMonth() + 1}-${new Date().getDate()}`;
+    const year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1;
+    let day = new Date().getDate();
 
-    if ((new Date().getMonth() + 1) < 10 || new Date().getDate() < 10) {
-      stringOfDate.replace(/-/, '-0');
+    if (month < 10) {
+      month = `0${month}`;
     }
 
-    this.currentDate.value = stringOfDate;
+    if (day < 10) {
+      day = `0${day}`;
+    }
+
+    this.currentDate.value = `${year}-${month}-${day}`;
   }
 }
 

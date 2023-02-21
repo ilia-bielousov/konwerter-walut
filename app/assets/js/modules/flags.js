@@ -13,7 +13,7 @@ class Flags extends Components {
         
         const doIt = (num) => {
           this.waluteName[num].innerHTML = str;
-          this.flagImages[num].classList.value = `flag-${flags[str]}`;
+          this.flagImages[num].classList.value = `flag-${this.flags[str]}`;
           this.select[num].childNodes.forEach(child => {
             if (child.value == str) {
               child.selected = true;
