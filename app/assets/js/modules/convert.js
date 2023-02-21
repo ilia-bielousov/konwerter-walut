@@ -19,8 +19,6 @@ class Convert extends Components {
         })
         .then((data) => {
           let t = this.currentDate.value;
-          console.log(data);
-
           data.forEach((item, i) => {
           });
         });
