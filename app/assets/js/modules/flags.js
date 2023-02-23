@@ -1,5 +1,6 @@
 import Components from "./components";
 import Request from "./request";
+import Grafic from './grafic';
 
 class Flags extends Components {
   constructor() {
@@ -7,6 +8,8 @@ class Flags extends Components {
   }
 
   classLogic() {
+    const g = new Grafic();
+
     this.offenUsed.forEach((item, i) => {
       item.addEventListener('click', (event) => {
         const str = event.target.textContent.trim();
@@ -26,6 +29,8 @@ class Flags extends Components {
         } else {
           doIt(1);
         }
+
+        g.reqForGrafic();
       });
     });
   
@@ -36,14 +41,7 @@ class Flags extends Components {
   
         this.waluteName[i].textContent = event.target.value;
         this.flagImages[i].classList.value = `flag-${this.flags[str]}`;
-  
-        value.getResource()
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-        })
+        g.reqForGrafic();
       });
     });
   }

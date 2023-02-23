@@ -1,5 +1,6 @@
 class Components {
   constructor() {
+    this.waluteInputs = document.querySelectorAll('.konwerter__input-value');
     this.currentDate = document.querySelector('.konwerter__choose-day input');
     this.flagImages = document.querySelectorAll('.konwerter__flag i');
     this.waluteName = document.querySelectorAll('.konwerter__walute span');
@@ -34,6 +35,8 @@ class Components {
     if (new Date().getMonth() == new Date(this.currentMouth).getMonth()) {
       this.daysInMouth = new Date().getDate();
     }
+    
+    return [this.currentMouth, this.daysInMouth];
   }
 }
 

@@ -1,47 +1,66 @@
 import Components from "./components";
+import DataBase from "./database";
 import Request from "./request";
 
 class Convert extends Components {
   constructor() {
     super();
+    this.information = new DataBase();
+    this.walutaValue = undefined;
   }
 
   classLogic() {
 
+
     this.currentDate.addEventListener('change', () => {
-      this.giveDate();
+      const time = this.giveDate();
+      // const timeStr = `${time[0]}-${time[1]}`;
+      const req = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
 
-      const data = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${this.currentMouth}-01/${this.currentMouth}-${this.daysInMouth}`);
-
-      data.getResource()
+      req.getResource()
         .then((response) => {
           return response.json();
         })
         .then((data) => {
-          let t = this.currentDate.value;
-          data.forEach((item, i) => {
-          });
-        });
+          this.checkContainDate(data);
+        })
     });
 
-    // let arrayOfValues = [];
+    this.waluteInputs.forEach((input, i) => {
+      input.addEventListener('input', (e) => {
+        const time = this.giveDate();
+        e.target.value = e.target.value.replace(/\D/g, '');
+        const value = +e.target.value;
+        const req = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
 
-    // for (let i of data) {
-    //   for (let current of i.rates) {
-    //     if (current['code'] == 'USD') {
-    //       arrayOfValues.push(current.bid);
-    //     }
-    //   }
-    // }
+        req.getResource()
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            if (i == 0) {
+              this.checkContainDate(data, value, 1, 0);
+            } else {
+              this.checkContainDate(data, value, 0, 1);
+            }
+          })
+      });
+    });
+  }
 
-    // inputsValue.forEach((input, i) => {
-    //   input.addEventListener('input', function (e) {
-    //     e.target.value = e.target.value.replace(/\D/g, '');
+  checkContainDate(data, value, index1, index2) {
+    const outData = this.information.createData(data);
+    let index = undefined;
+    console.log(outData);
 
-    //   });
-    // });
-
-    // console.log(this.data);
+    for (let i = 0; i < outData.length; i++) {
+      if (this.currentDate.value === outData[i][0]) {
+        console.log(value);
+        console.log(outData[i][1]);
+        // console.log(this.waluteInputs[index2].value)
+        this.waluteInputs[index1].value = (value * outData[i][1]).toFixed(2);
+      }
+    }
   }
 };
 
