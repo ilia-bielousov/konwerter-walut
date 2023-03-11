@@ -18,6 +18,8 @@ class Grafic extends Components {
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
+    // data = data.pop();
+
     const outData = this.information.createData(data);
 
     function drawChart() {

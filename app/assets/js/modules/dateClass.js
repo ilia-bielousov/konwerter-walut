@@ -19,6 +19,7 @@ class DateClass extends Components {
     }
 
     this.currentDate.value = `${year}-${month}-${day}`;
+    this.currentDate.max = `${year}-${month}-${day}`;
   }
 }
 
