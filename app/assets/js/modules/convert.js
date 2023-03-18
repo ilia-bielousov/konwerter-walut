@@ -9,19 +9,42 @@ class Convert extends Components {
     this.walutaValue = undefined;
   }
 
-  classLogic() {
-    this.currentDate.addEventListener('change', () => {
-      const time = this.giveDate();
-      const req = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
+  startSite() {
+    this.waluteInputs[0].value = 0;
+    this.waluteInputs[1].value = 0;
+  }
 
-      req.getResource()
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          const outData = this.information.createData(data);
-            this.setValue(outData, value, 1, this.information.findDate(data));
-        });
+  reqApi() {
+    const time = this.giveDate();
+    const req = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
+
+    req.getResource()
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        const outData = this.information.createData(data);
+          this.setValue(outData, this.waluteInputs[0].value, 1, this.information.findDate(data));
+      });
+  }
+
+  classLogic() { // переписать логику целого класса!!!
+    this.startSite();
+
+    this.currentDate.addEventListener('change', () => {
+      this.reqApi();
+    });
+
+    this.select.forEach(item => {
+      item.addEventListener('change', () => {
+        this.reqApi();
+      });
+    });
+
+    this.offenUsed.forEach(item => {
+      item.addEventListener('click', () => {
+        this.reqApi();
+      })
     });
 
     this.waluteInputs.forEach((input, i) => {
@@ -50,9 +73,9 @@ class Convert extends Components {
 
   setValue(data, value, curr, index) {
     if (curr == 1) {
-      this.waluteInputs[curr].value = (value * data[index+1][1]).toFixed(2);
+      this.waluteInputs[curr].value = (value * data[index+1][1]).toFixed(3);
     } else {
-      this.waluteInputs[0].value = (value * data[index+1][1]).toFixed(2);
+      this.waluteInputs[0].value = (value * data[index+1][1]).toFixed(3);
     }
   }
 };

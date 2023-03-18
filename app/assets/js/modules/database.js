@@ -101,10 +101,6 @@ class DataBase extends Components {
     const index = this.findDate(data);
     const ourData = this.fillData(data, index);
 
-    console.log(data);
-    console.log(index);
-    console.log(ourData);
-
     return ourData;
   }
 }
