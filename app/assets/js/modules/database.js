@@ -21,7 +21,7 @@ class DataBase extends Components {
     return temp;
   }
 
-  fillData(data, index) {
+  fillData(data, index) { // переписать
     let ourData = [];
     const t = this.currentValueWalute(data, index);
 
@@ -98,8 +98,12 @@ class DataBase extends Components {
   }
 
   createData(data) {
+    console.log(data);
+    
     const index = this.findDate(data);
     const ourData = this.fillData(data, index);
+
+    // console.log(ourData);
 
     return ourData;
   }

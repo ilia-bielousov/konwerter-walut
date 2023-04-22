@@ -13,7 +13,7 @@ class Flags extends Components {
     this.offenUsed.forEach((item, i) => {
       item.addEventListener('click', (event) => {
         const str = event.target.textContent.trim();
-        
+
         const doIt = (num) => {
           this.waluteName[num].innerHTML = str;
           this.flagImages[num].classList.value = `flag-${this.flags[str]}`;
@@ -37,8 +37,8 @@ class Flags extends Components {
     this.select.forEach((item, i) => {
       item.addEventListener('change', (event) => {
         const str = event.target.value;
-        const value = new Request(`http://api.nbp.pl/api/exchangerates/rates/C/${event.target.value}/`);
-  
+        
+        console.log(i);
         this.waluteName[i].textContent = event.target.value;
         this.flagImages[i].classList.value = `flag-${this.flags[str]}`;
         g.reqForGrafic();

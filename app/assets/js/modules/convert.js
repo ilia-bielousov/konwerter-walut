@@ -14,7 +14,7 @@ class Convert extends Components {
     this.waluteInputs[1].value = 0;
   }
 
-  reqApi() {
+  reqApi(num = 0) {
     const time = this.giveDate();
     const req = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
 
@@ -24,7 +24,7 @@ class Convert extends Components {
       })
       .then((data) => {
         const outData = this.information.createData(data);
-          this.setValue(outData, this.waluteInputs[0].value, 1, this.information.findDate(data));
+          this.setValue(outData, this.waluteInputs[num].value, 1, this.information.findDate(data));
       });
   }
 
@@ -35,9 +35,9 @@ class Convert extends Components {
       this.reqApi();
     });
 
-    this.select.forEach(item => {
+    this.select.forEach((item, i) => {
       item.addEventListener('change', () => {
-        this.reqApi();
+        this.reqApi(i);
       });
     });
 
@@ -73,9 +73,9 @@ class Convert extends Components {
 
   setValue(data, value, curr, index) {
     if (curr == 1) {
-      this.waluteInputs[curr].value = (value * data[index+1][1]).toFixed(3);
+      this.waluteInputs[curr].value = (value * data[index+1][1]).toFixed(2);
     } else {
-      this.waluteInputs[0].value = (value * data[index+1][1]).toFixed(3);
+      this.waluteInputs[curr].value = (value * data[index+1][1]).toFixed(2);
     }
   }
 };
