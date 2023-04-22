@@ -1,10 +1,5 @@
-import Request from "./request";
-
-class Components extends Request {
+class Components {
   constructor() {
-    super();
-
-    this.request = null;
     this.waluteInputs = document.querySelectorAll('.konwerter__input-value');
     this.currentDate = document.querySelector('.konwerter__choose-day input');
     this.flagImages = document.querySelectorAll('.konwerter__flag i');
@@ -27,20 +22,7 @@ class Components extends Request {
       "PLN": "PL"
     };
   }
-
-  requestToAPI() {
-    const time = this.giveDate();
-    this.request = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
-
-    this.request.getResource()
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
-  }
-
+  
   giveDate() {
     Date.prototype.daysInMonth = function () {
       return 32 - new Date(this.getFullYear(), this.getMonth(), 32).getDate();
@@ -53,11 +35,9 @@ class Components extends Request {
     if (new Date().getMonth() == new Date(this.currentMouth).getMonth()) {
       this.daysInMouth = new Date().getDate();
     }
-
+    
     return [this.currentMouth, this.daysInMouth];
   }
-
-
 }
 
 export default Components;
