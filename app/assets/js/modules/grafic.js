@@ -1,5 +1,4 @@
 import Components from './components';
-import Request from './request';
 import DataBase from './database';
 
 class Grafic extends Components {
@@ -10,15 +9,14 @@ class Grafic extends Components {
 
   classLogic() {
     this.currentDate.addEventListener('change', () => {
-      this.reqForGrafic();
+      this.showGrafic();
     });
   }
 
   createGrafic(data) {
+    console.log(data);
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
-
-    // data = data.pop();
 
     const outData = this.information.createData(data);
 
@@ -40,22 +38,8 @@ class Grafic extends Components {
     }
   }
 
-  reqForGrafic() {
-    const time = this.giveDate();
-    const grafic = new Request(`http://api.nbp.pl/api/exchangerates/tables/C/${time[0]}-01/${time[0]}-${time[1]}`);
-
-    grafic.getResource()
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        this.createGrafic(data);
-      })
-  }
-
-  firstBuild() {
-    this.giveDate();
-    this.reqForGrafic();
+  async showGrafic() {
+    this.createGrafic(await this.requestToAPI());
   }
 }
 

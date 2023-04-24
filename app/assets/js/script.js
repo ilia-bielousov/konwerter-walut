@@ -1,19 +1,23 @@
 import Flags from './modules/flags';
-import DateClass from './modules/dateClass';
 import Grafic from './modules/grafic';
 import Convert from './modules/convert';
+import Components from './modules/components';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
   
+  const components = new Components();
   const flags = new Flags();
-  const dateClass = new DateClass();
   const grafic = new Grafic();
   const convert = new Convert();
+  
+  components.Date();
+  components.requestToAPI();
+  grafic.showGrafic();
 
   flags.classLogic();
-  dateClass.classLogic();
-  grafic.firstBuild();
+  
   grafic.classLogic();
   convert.classLogic();
+  
 });
