@@ -3,10 +3,12 @@ import Components from "./components";
 class DataBase extends Components {
   constructor() {
     super();
+    
+    this.ourData = undefined;
   }
 
-  currentValueWalute(data, index) {
-    const walute = this.waluteName[0].textContent;
+  currentValueWalute(data, index, numOfWalute = 0) {
+    const walute = this.waluteName[numOfWalute].textContent;
     let temp = undefined;
 
     for (let i = 0; i < data[index].rates.length; i++) {
@@ -21,11 +23,11 @@ class DataBase extends Components {
     return temp;
   }
 
-  fillData(data, index) { // переписать
-    let ourData = [];
-    const t = this.currentValueWalute(data, index);
+  fillData(data, index) {
+    const firstWaluteNum = this.currentValueWalute(data, index);
+    const secondWaluteNum = this.currentValueWalute(data, index, 1);
 
-    if (t == -1) {
+    if (firstWaluteNum == -1) {
       for (let i = 0; i < data.length; i++) {
         for (let j = 0; j < 2;) {
           let temp = [];
@@ -33,7 +35,7 @@ class DataBase extends Components {
           j += 1;
           temp.push(1);
           j += 1;
-          ourData.push(temp);
+          this.ourData.push(temp);
         }
       }
     } else {
@@ -42,16 +44,26 @@ class DataBase extends Components {
           let temp = [];
           temp.push(data[i].effectiveDate)
           j += 1;
-          temp.push(data[i].rates[t].bid);
+          temp.push(data[i].rates[firstWaluteNum].bid);
           j += 1;
-          ourData.push(temp);
+          this.ourData.push(temp);
         }
       }
     }
 
-    ourData.unshift(['Data', 'kurs']);
+    if (secondWaluteNum == -1) {
+      for (let i = 0; i < this.ourData.length; i++) {
+        this.ourData[i].push(1);
+      }
+    } else {
+      for (let i = 0; i < this.ourData.length; i++) {
+        this.ourData[i].push(data[i].rates[secondWaluteNum].bid);
+      }
+    }
 
-    return ourData;
+
+
+    return this.ourData;
   }
 
   findIndex(data, date) {
@@ -98,14 +110,15 @@ class DataBase extends Components {
   }
 
   createData(data) {
-    console.log(data);
-    
+    this.ourData = [];
+
     const index = this.findDate(data);
-    const ourData = this.fillData(data, index);
+    this.ourData = this.fillData(data, index);
+    
+    this.ourData.unshift(['Data', 'kursFirstCurrency', 'kursSecondCurrency']);
+    console.log(this.ourData);
 
-    // console.log(ourData);
-
-    return ourData;
+    return this.ourData;
   }
 }
 
