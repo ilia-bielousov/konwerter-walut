@@ -116,7 +116,6 @@ class DataBase extends Components {
     this.ourData = this.fillData(data, index);
     
     this.ourData.unshift(['Data', 'kursFirstCurrency', 'kursSecondCurrency']);
-    console.log(this.ourData);
 
     return this.ourData;
   }

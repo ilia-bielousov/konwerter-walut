@@ -4,7 +4,7 @@ import DataBase from './database';
 class Grafic extends Components {
   constructor() {
     super();
-    this.information = new DataBase();
+    this.data = new DataBase();
   }
 
   classLogic() {
@@ -14,11 +14,10 @@ class Grafic extends Components {
   }
 
   createGrafic(data) {
-    console.log(data);
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart);
 
-    const outData = this.information.createData(data);
+    const outData = this.data.createData(data);
 
     function drawChart() {
       var data = google.visualization.arrayToDataTable(outData);
