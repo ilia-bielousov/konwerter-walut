@@ -18,9 +18,17 @@ class Grafic extends Components {
     google.charts.setOnLoadCallback(drawChart);
 
     const outData = this.data.createData(data);
+    let outDataTransform = [];
+
+    for (let i = 0; i < outData.length; i++) {
+      const t = +(outData[i][1] / outData[i][2]).toFixed(3);
+      outDataTransform[i] = [outData[i][0], t];
+    }
+
+    outDataTransform[0] = ['data', 'value'];
 
     function drawChart() {
-      var data = google.visualization.arrayToDataTable(outData);
+      var data = google.visualization.arrayToDataTable(outDataTransform);
 
       var options = {
         title: '',
