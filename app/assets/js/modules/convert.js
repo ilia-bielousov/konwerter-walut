@@ -58,7 +58,7 @@ class Convert extends Components {
         break;
       } 
       
-      if (temp == 0) {
+      if (temp == 0) { // немного доделать, берет значения в суботу за пятницу, в воскресенье за понедельник
         temp = 1;
         break;
       } else {
