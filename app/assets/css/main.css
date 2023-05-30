@@ -1,3 +1,4 @@
+@import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 * {
   margin: 0px;
   padding: 0px;
@@ -30,14 +31,26 @@ body {
 }
 
 .header {
-  padding: 50px 0px 75px;
+  padding: 15px 0px;
+  background-color: #00214a;
+}
+.header__descp {
+  background: #fff;
 }
 .header__title {
+  font-weight: bold;
   font-size: 40px;
   line-height: 48px;
 }
+.header__link {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+}
 .header__text {
+  font-weight: bold;
   font-size: 20px;
+  margin-bottom: 0px;
 }
 .header__text a {
   font-size: 22px;
@@ -48,7 +61,6 @@ body {
 
 .article {
   margin: 0px auto;
-  width: 70%;
 }
 
 #curve_chart {
@@ -60,22 +72,12 @@ body {
 }
 
 .konwerter {
-  display: flex;
-  padding: 15px;
-  border: 1px solid #000;
-  border-radius: 10px;
-}
-.konwerter__left-section, .konwerter__right-section {
-  width: 50%;
-  padding: 0px 10px;
+  padding: 10px;
 }
 .konwerter__choose-walute, .konwerter__input-number {
   height: 70px;
   margin-bottom: 10px;
   padding: 15px 50px 15px 10px;
-  border: 1px solid gray;
-  border-radius: 5px;
-  cursor: pointer;
   box-sizing: border-box;
 }
 .konwerter__choose-walute {
@@ -86,18 +88,21 @@ body {
   border: 1px solid #000;
 }
 .konwerter__flag {
-  margin-right: 20px;
+  margin-right: 10px;
+}
+.konwerter__flag-item {
+  width: 2em !important;
+  height: 30px !important;
 }
 .konwerter__walute {
-  position: relative;
-  z-index: 5;
   display: flex;
   align-items: center;
+  width: 100%;
   font-size: 22px;
   font-weight: 500;
 }
 .konwerter__walute span {
-  margin-right: 40px;
+  margin-right: 10px;
 }
 .konwerter__name-walute {
   position: relative;
@@ -108,6 +113,7 @@ body {
   border-radius: 5px;
   font-size: 18px;
   transition: 0.3s;
+  cursor: pointer;
 }
 .konwerter__name-walute:focus {
   border: 1px solid #000;
@@ -141,10 +147,10 @@ body {
   margin-bottom: 25px;
 }
 .konwerter__offen-used span {
-  margin-right: 25px;
-  padding: 6px;
+  margin-right: 10px;
+  padding: 5px;
   border-radius: 35%;
-  font-size: 22px;
+  font-size: 20px;
   color: gray;
   cursor: pointer;
   transition: 0.2s;
@@ -156,12 +162,11 @@ body {
 .konwerter__calendar {
   font-size: 18px;
 }
-.konwerter__calendar-inner {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.konwerter__calendar label {
+  margin-right: 10px;
 }
-.konwerter__choose-day {
-  grid-column-start: 3;
+.konwerter__calendar input {
+  padding: 7px;
 }
 
 .footer {
@@ -171,8 +176,11 @@ body {
   padding: 12px;
   text-align: center;
 }
+.footer__link {
+  margin-bottom: 0px;
+}
 .footer a {
-  font-size: 22px;
+  font-size: 18px;
   text-decoration: none;
   color: #000;
   font-weight: bold;

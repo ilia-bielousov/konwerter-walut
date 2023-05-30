@@ -1,3 +1,5 @@
+@import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 * {
   margin: 0px;
   padding: 0px;
@@ -23,7 +25,6 @@ body {
   flex: 0 0 auto;
 }
 
-
 .container {
   max-width: 1200px;
   margin: 0px auto;
@@ -31,15 +32,29 @@ body {
 }
 
 .header {
-  padding: 50px 0px 75px;
+  padding: 15px 0px;
+  background-color: #00214a;
+
+  &__descp {
+    background: #fff;
+  }
 
   &__title {
+    font-weight: bold;
     font-size: 40px;
     line-height: 48px;
   }
-  
+
+  &__link {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+  }
+
   &__text {
+    font-weight: bold;
     font-size: 20px;
+    margin-bottom: 0px;
   }
 
   &__text a {
@@ -52,7 +67,7 @@ body {
 
 .article {
   margin: 0px auto;
-  width: 70%;
+  // width: 70%;
 }
 
 #curve_chart {
@@ -64,25 +79,14 @@ body {
 }
 
 .konwerter {
-  display: flex;
-  padding: 15px;
-  border: 1px solid #000;
-  border-radius: 10px;
-
-  &__left-section,
-  &__right-section {
-    width: 50%;
-    padding: 0px 10px;
-  }
+  padding: 10px;
 
   &__choose-walute,
   &__input-number {
     height: 70px;
     margin-bottom: 10px;
     padding: 15px 50px 15px 10px;
-    border: 1px solid gray;
-    border-radius: 5px;
-    cursor: pointer;
+    // cursor: pointer;
     box-sizing: border-box;
   }
 
@@ -96,19 +100,23 @@ body {
   }
 
   &__flag {
-    margin-right: 20px;
+    margin-right: 10px;
+  }
+  
+  &__flag-item {
+    width: 2em !important;
+    height: 30px !important;
   }
 
   &__walute {
-    position: relative;
-    z-index: 5;
     display: flex;
     align-items: center;
+    width: 100%;
     font-size: 22px;
     font-weight: 500;
 
     span {
-      margin-right: 40px;
+      margin-right: 10px;
     }
   }
 
@@ -121,6 +129,7 @@ body {
     border-radius: 5px;
     font-size: 18px;
     transition: 0.3s;
+    cursor: pointer;
 
     &:focus {
       border: 1px solid #000;
@@ -151,10 +160,11 @@ body {
     border: 0px;
     font-size: 22px;
     background-color: aliceblue;
-    
+
     &:focus {
       outline: none;
     }
+
   }
 
   &__offen-used {
@@ -162,10 +172,10 @@ body {
   }
 
   &__offen-used span {
-    margin-right: 25px;
-    padding: 6px;
+    margin-right: 10px;
+    padding: 5px;
     border-radius: 35%;
-    font-size: 22px;
+    font-size: 20px;
     color: gray;
     cursor: pointer;
     transition: 0.2s;
@@ -178,19 +188,14 @@ body {
 
   &__calendar {
     font-size: 18px;
-  }
 
-  &__calendar-inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
+    label {
+      margin-right: 10px;
+    }
 
-  &__date {
-
-  }
-
-  &__choose-day {
-    grid-column-start: 3;
+    input {
+      padding: 7px;
+    }
   }
 }
 
@@ -202,8 +207,12 @@ body {
     text-align: center;
   }
 
+  &__link {
+    margin-bottom: 0px;
+  }
+
   a {
-    font-size: 22px;
+    font-size: 18px;
     text-decoration: none;
     color: #000;
     font-weight: bold;
