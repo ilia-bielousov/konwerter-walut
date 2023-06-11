@@ -7,25 +7,25 @@ class Components extends Request {
     this.request = null;
 
     this.waluteInputs = document.querySelectorAll('.konwerter__input-value');
-    this.currentDate = document.querySelector('.konwerter__choose-day input');
-    this.flagImages = document.querySelectorAll('.konwerter__flag i');
+    this.currentDate = document.querySelector('.konwerter__calendar input');
+    this.flagImages = document.querySelectorAll('.konwerter__flag-item');
     this.waluteName = document.querySelectorAll('.konwerter__walute span');
     this.offenUsed = document.querySelectorAll('.konwerter__offen-used span');
     this.select = document.querySelectorAll('.konwerter__name-walute');
     this.flags = {
-      "USD": "US",
-      "AUD": "AU",
-      "CAD": "CA",
-      "EUR": "EU",
-      "HUF": "HU",
-      "CHF": "CH",
-      "GBP": "GB",
-      "JPY": "JP",
-      "CZK": "CZ",
-      "DKK": "DK",
-      "NOK": "NO",
-      "SEK": "SE",
-      "PLN": "PL"
+      "USD": "us",
+      "AUD": "au",
+      "CAD": "ca",
+      "EUR": "eu",
+      "HUF": "hu",
+      "CHF": "cg",
+      "GBP": "gb",
+      "JPY": "jp",
+      "CZK": "cz",
+      "DKK": "dk",
+      "NOK": "no",
+      "SEK": "se",
+      "PLN": "pl"
     };
   }
 
@@ -38,6 +38,7 @@ class Components extends Request {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         return data;
       });
 

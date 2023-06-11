@@ -14,8 +14,9 @@ class Flags extends Components {
 
         const doIt = (num) => {
           this.waluteName[num].innerHTML = str;
-          this.flagImages[num].classList.value = `flag-${this.flags[str]}`;
-          this.select[num].childNodes.forEach(child => {
+          console.log(this.select[num]);
+          this.flagImages[num].classList.value = `konwerter__flag-item fi fi-${this.flags[str]}`;
+          this.select[num].childNodes.forEach(child => { // пока пускай так будет
             if (child.value == str) {
               child.selected = true;
             }
@@ -37,7 +38,7 @@ class Flags extends Components {
         const str = event.target.value;
         
         this.waluteName[i].textContent = event.target.value;
-        this.flagImages[i].classList.value = `flag-${this.flags[str]}`;
+        this.flagImages[i].classList.value = `konwerter__flag-item fi fi-${this.flags[str]}`;
         this.grafic.showGrafic();
       });
     });

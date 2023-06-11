@@ -1,4 +1,5 @@
 @import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 * {
   margin: 0px;
@@ -85,14 +86,17 @@ body {
   &__input-number {
     height: 70px;
     margin-bottom: 10px;
-    padding: 15px 50px 15px 10px;
-    // cursor: pointer;
+    padding: 15px 15px 15px 10px;
+    cursor: pointer;
     box-sizing: border-box;
   }
 
   &__choose-walute {
-    display: flex;
-    align-items: center;
+    background-color: aliceblue;
+  }
+
+  &__choose-list {
+    padding: 0px;
   }
 
   &__choose-walute:hover {
@@ -100,9 +104,8 @@ body {
   }
 
   &__flag {
-    margin-right: 10px;
   }
-  
+
   &__flag-item {
     width: 2em !important;
     height: 30px !important;
@@ -111,37 +114,41 @@ body {
   &__walute {
     display: flex;
     align-items: center;
-    width: 100%;
     font-size: 22px;
     font-weight: 500;
 
     span {
-      margin-right: 10px;
     }
+  }
+
+  &__name-walute,
+  &__name-btn {
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    list-style-type: none;
+    font-size: 21px;
+    transition: 0.3s;
   }
 
   &__name-walute {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding: 10px 10px 10px 5px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    font-size: 18px;
-    transition: 0.3s;
-    cursor: pointer;
-
-    &:focus {
-      border: 1px solid #000;
-      outline: none;
-    }
+    padding: 0px;
   }
 
-  &__arrow {
+  &__arrow-inner {
+    position: relative;
+  }
+
+  &__walute-arrow {
     position: absolute;
-    z-index: 1;
-    right: 15px;
-    transform: rotate(90deg);
+    top: -8px;
+    left: -11px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
   }
 
   &__input-number:hover {

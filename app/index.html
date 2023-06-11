@@ -6,9 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/main.css">
-  <link rel="stylesheet" href="./assets/css/flags.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css" />
-
   <link rel="icon" href="./assets/favicon/favicon.ico" type="image/x-icon">
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -51,35 +48,34 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8 col-12">
-              <div class="main main__konwerter konwerter border rounded border-2 border-secondary">
+              <div class="main main__konwerter konwerter border rounded border-2 border-secondary mb-4">
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="konwerter__left-section">
                       <div class="konwerter__choose-walute border rounded border-secondary">
-                        <div class="konwerter__flag">
-                          <span class="fi fi-us konwerter__flag-item"></span>
-                        </div>
-                        <div class="konwerter__walute">
-                          <span>USD</span>
-                          <select id="waluts" class="konwerter__name-walute">
-                            <option data-flag="flag-US" value="USD" selected="selected">Dolar amerykański</option>
-                            <option data-flag="flag-AUS" value="AUD">Dolar australijski</option>
-                            <option data-flag="flag-CAN" value="CAD">Dolar kanadyjski</option>
-                            <option data-flag="flag-EU" value="EUR">Euro</option>
-                            <option data-flag="flag-HUN" value="HUF">Forint (Węgry)</option>
-                            <option data-flag="flag-CH" value="CHF">Frank szwajcarski</option>
-                            <option data-flag="flag-GBR" value="GBP">Funt szterling</option>
-                            <option data-flag="flag-JP" value="JPY">Jen (Japonia)</option>
-                            <option data-flag="flag-CZE" value="CZK">Korona czeska</option>
-                            <option data-flag="flag-DNK" value="DKK">Korona duńska</option>
-                            <option data-flag="flag-NOR" value="NOK">Korona norweska</option>
-                            <option data-flag="flag-SWE" value="SEK">Korona szwedzka</option>
-                            <option data-flag="flag-PL" value="PLN">Złoty</option>
-                          </select>
-                        </div>
+                        <ul class="konwerter__choose-list d-flex flex-column">
+                          <li class="konwerter__choose-item d-flex align-items-center justify-content-around">
+                            <div class="konwerter__flag">
+                              <span class="fi fi-us konwerter__flag-item"></span>
+                            </div>
+                            <div class="konwerter__walute">
+                              <span>USD</span>
+                            </div>
+                            <div id="waluts__first" >
+                              <ul class="konwerter__name-walute">
+                                <li class="konwerter__name-item">
+                                  Dolar amerykański
+                                </li>
+                              </ul>
+                            </div>
+                            <div class="konwerter__arrow-inner">
+                              <i class="konwerter__walute-arrow"></i>
+                            </div>
+                          </li>
+                        </ul>
                       </div>
                       <div class="konwerter__input-number border rounded border-secondary">
-                        <input type="text" class="konwerter__input-value" value="1">
+                        <input type="text" class="konwerter__input-value" value="">
                       </div>
                       <div class="konwerter__offen-used">
                         <span>
@@ -105,22 +101,22 @@
                         </div>
                         <div class="konwerter__walute">
                           <span>PLN</span>
-                          <select id="waluts" class="konwerter__name-walute">
-                            <option data-flag="flag-US" value="USD">Dolar amerykański</option>
-                            <option data-flag="flag-AUS" value="AUD">Dolar australijski</option>
-                            <option data-flag="flag-CAN" value="CAD">Dolar kanadyjski</option>
-                            <option data-flag="flag-EU" value="EUR">Euro</option>
-                            <option data-flag="flag-HUN" value="HUF">Forint (Węgry)</option>
-                            <option data-flag="flag-CH" value="CHF">Frank szwajcarski</option>
-                            <option data-flag="flag-GBR" value="GBP">Funt szterling</option>
-                            <option data-flag="flag-JP" value="JPY">Jen (Japonia)</option>
-                            <option data-flag="flag-CZE" value="CZK">Korona czeska</option>
-                            <option data-flag="flag-DNK" value="DKK">Korona duńska</option>
-                            <option data-flag="flag-NOR" value="NOK">Korona norweska</option>
-                            <option data-flag="flag-SWE" value="SEK">Korona szwedzka</option>
-                            <option data-flag="flag-PL" value="PLN" selected="selected">Złoty</option>
-                          </select>
                         </div>
+                        <select id="waluts_second" class="konwerter__name-walute">
+                          <option data-flag="flag-US" value="USD">Dolar amerykański</option>
+                          <option data-flag="flag-AUS" value="AUD">Dolar australijski</option>
+                          <option data-flag="flag-CAN" value="CAD">Dolar kanadyjski</option>
+                          <option data-flag="flag-EU" value="EUR">Euro</option>
+                          <option data-flag="flag-HUN" value="HUF">Forint (Węgry)</option>
+                          <option data-flag="flag-CH" value="CHF">Frank szwajcarski</option>
+                          <option data-flag="flag-GBR" value="GBP">Funt szterling</option>
+                          <option data-flag="flag-JP" value="JPY">Jen (Japonia)</option>
+                          <option data-flag="flag-CZE" value="CZK">Korona czeska</option>
+                          <option data-flag="flag-DNK" value="DKK">Korona duńska</option>
+                          <option data-flag="flag-NOR" value="NOK">Korona norweska</option>
+                          <option data-flag="flag-SWE" value="SEK">Korona szwedzka</option>
+                          <option data-flag="flag-PL" value="PLN" selected="selected">Złoty</option>
+                        </select>
                       </div>
                       <div class="konwerter__input-number border rounded border-secondary">
                         <input type="text" class="konwerter__input-value" value="1">
