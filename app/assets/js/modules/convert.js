@@ -23,9 +23,13 @@ class Convert extends Components {
       });
     });
 
-    this.offenUsed.forEach(item => {
+    this.offenUsed.forEach((item, i) => {
       item.addEventListener('click', () => {
-        this.changeDataBase(+this.waluteInputs[0].value);
+        if (i < 4) {
+          this.changeDataBase(+this.waluteInputs[0].value);
+        } else {
+          this.changeDataBase(+this.waluteInputs[1].value, 1);
+        }
       })
     });
 
@@ -64,7 +68,7 @@ class Convert extends Components {
     }
 
     if (index == 0) {
-      this.waluteInputs[1].value = (value * (dataInside[temp][1])).toFixed(2);
+      this.waluteInputs[1].value = (value * dataInside[temp][1]).toFixed(2);
     } else {
       this.waluteInputs[0].value = (value * (dataInside[temp][1])).toFixed(2);
     }

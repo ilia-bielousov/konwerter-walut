@@ -84,7 +84,7 @@ body {
 .konwerter__choose-walute, .konwerter__input-number {
   height: 70px;
   margin-bottom: 10px;
-  padding: 15px 50px 15px 10px;
+  padding: 15px 25px 15px 10px;
   box-sizing: border-box;
 }
 .konwerter__choose-walute {
@@ -96,7 +96,7 @@ body {
   border: 1px solid #000;
 }
 .konwerter__flag {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 .konwerter__flag-item {
   width: 2em !important;
@@ -110,7 +110,12 @@ body {
   font-weight: 500;
 }
 .konwerter__walute span {
-  margin-right: 10px;
+  margin-right: 25px;
+}
+@media (max-width: 992px) {
+  .konwerter__walute span {
+    margin-right: 15px;
+  }
 }
 .konwerter__name-walute {
   width: 100%;
