@@ -14,29 +14,28 @@ class Grafic extends Components {
   }
 
   createGrafic(data) {
-    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.load('current', { 'packages': ['corechart', 'line'] });
     google.charts.setOnLoadCallback(drawChart);
 
     const outData = this.data.createData(data);
-    let outDataTransform = [];
-
-    for (let i = 0; i < outData.length; i++) {
-      const t = +(outData[i][1] / outData[i][2]).toFixed(3);
-      outDataTransform[i] = [outData[i][0], t];
-    }
-
-    outDataTransform[0] = ['data', 'value'];
 
     function drawChart() {
-      var data = google.visualization.arrayToDataTable(outDataTransform);
+      console.log(outData);
+      var data = new google.visualization.DataTable();
+      data.addColumn('date', 'Date');
+      data.addColumn('number', 'Current');
+      
+      let t = [];
+      
+      for (let i = 0; i < outData.length; i++) {
+        t.push([new Date(outData[i][0]), outData[i][1]]);
+      }
+      
+      data.addRows(t);
 
       var options = {
-        title: '',
         curveType: 'function',
-        legend: { position: 'bottom' },
-        hAxis: {
-          textPosition: 'none'
-        }
+        legend: { position: 'none' },
       };
 
       var chart = new google.visualization.LineChart(document.getElementById('grafic'));

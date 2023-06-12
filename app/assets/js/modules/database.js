@@ -61,8 +61,6 @@ class DataBase extends Components {
       }
     }
 
-
-
     return this.ourData;
   }
 
@@ -109,13 +107,24 @@ class DataBase extends Components {
     return index;
   }
 
+  transformData(data) {
+    let t = [];
+
+    for (let i = 0; i < data.length; i++) {
+      t.push([data[i][0], +(data[i][1] / data[i][2]).toFixed(3)]);
+
+      
+    }
+
+    return t;
+  }
+
   createData(data) {
     this.ourData = [];
 
     const index = this.findDate(data);
     this.ourData = this.fillData(data, index);
-    
-    this.ourData.unshift(['Data', 'kursFirstCurrency', 'kursSecondCurrency']);
+    this.ourData = this.transformData(this.ourData);
 
     return this.ourData;
   }

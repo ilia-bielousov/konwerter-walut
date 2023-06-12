@@ -12,9 +12,10 @@ class Flags extends Components {
       item.addEventListener('click', (event) => {
         const str = event.target.textContent.trim();
 
+        console.log(item);
         const doIt = (num) => {
           this.waluteName[num].innerHTML = str;
-          this.flagImages[num].classList.value = `flag-${this.flags[str]}`;
+          this.flagImages[num].classList.value = `fi fi-${this.flags[str]} konwerter__flag-item`;
           this.select[num].childNodes.forEach(child => {
             if (child.value == str) {
               child.selected = true;
@@ -37,7 +38,7 @@ class Flags extends Components {
         const str = event.target.value;
         
         this.waluteName[i].textContent = event.target.value;
-        this.flagImages[i].classList.value = `flag-${this.flags[str]}`;
+        this.flagImages[i].classList.value = `fi fi-${this.flags[str]} konwerter__flag-item`;
         this.grafic.showGrafic();
       });
     });

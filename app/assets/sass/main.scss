@@ -1,4 +1,5 @@
 @import './../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 * {
   margin: 0px;
@@ -86,13 +87,13 @@ body {
     height: 70px;
     margin-bottom: 10px;
     padding: 15px 50px 15px 10px;
-    // cursor: pointer;
     box-sizing: border-box;
   }
 
   &__choose-walute {
     display: flex;
     align-items: center;
+    background-color: aliceblue;
   }
 
   &__choose-walute:hover {
@@ -121,18 +122,13 @@ body {
   }
 
   &__name-walute {
-    position: relative;
-    z-index: 1;
     width: 100%;
     padding: 10px 10px 10px 5px;
-    border: 1px solid #fff;
-    border-radius: 5px;
+    border: 1px solid #000;
     font-size: 18px;
-    transition: 0.3s;
     cursor: pointer;
 
-    &:focus {
-      border: 1px solid #000;
+    &:focus-visible {
       outline: none;
     }
   }

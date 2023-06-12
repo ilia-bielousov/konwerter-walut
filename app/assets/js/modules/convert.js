@@ -14,12 +14,12 @@ class Convert extends Components {
   startSite() {
     this.changeDataBase();
 
-    this.waluteInputs.forEach(item => {
-      item.value = 0;
-    });
+    // this.waluteInputs.forEach(item => {
+    //   item.value = 0;
+    // });
   }
 
-  classLogic() { // переписать логику целого класса!!!
+  classLogic() {
     this.startSite();
 
     this.currentDate.addEventListener('change', () => {
@@ -40,10 +40,16 @@ class Convert extends Components {
 
     this.waluteInputs.forEach((input, i) => {
       input.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/\D/g, '');
+        e.target.value = e.target.value.replace(/[^.\d]+/g, '');
         const value = +e.target.value;
 
         this.changeDataBase(value, i);
+      });
+    });
+
+    this.waluteInputs.forEach((input, i) => {
+      input.addEventListener('click', (e) => {
+        input.value = '';
       });
     });
   }
@@ -56,9 +62,9 @@ class Convert extends Components {
       if (dataInside[i][0] == this.currentDate.value) {
         temp = i;
         break;
-      } 
-      
-      if (temp == 0) { // немного доделать, берет значения в суботу за пятницу, в воскресенье за понедельник
+      }
+
+      if (temp == 0) {
         temp = 1;
         break;
       } else {
