@@ -44,7 +44,7 @@ class DataBase extends Components {
           let temp = [];
           temp.push(data[i].effectiveDate)
           j += 1;
-          temp.push(data[i].rates[firstWaluteNum].bid);
+          temp.push(((data[i].rates[firstWaluteNum].bid + data[i].rates[firstWaluteNum].ask) / 2));
           j += 1;
           this.ourData.push(temp);
         }
@@ -57,9 +57,18 @@ class DataBase extends Components {
       }
     } else {
       for (let i = 0; i < this.ourData.length; i++) {
-        this.ourData[i].push(data[i].rates[secondWaluteNum].bid);
+        this.ourData[i].push(((data[i].rates[secondWaluteNum].bid + data[i].rates[secondWaluteNum].ask) / 2));
       }
     }
+
+    let t = this.findDate(data);
+
+    document.querySelector('[data-bidFirstWalute]').textContent = !(firstWaluteNum == -1) ? data[t].rates[firstWaluteNum].bid : 1;
+    document.querySelector('[data-askFirstWalute]').textContent = !(firstWaluteNum == -1)  ? data[t].rates[firstWaluteNum].ask : 1;
+    document.querySelector('[data-bidSecondWalute]').textContent = !(secondWaluteNum == -1)  ? data[t].rates[secondWaluteNum].bid : 1;
+    document.querySelector('[data-askSecondWalute]').textContent = !(secondWaluteNum == -1)  ? data[t].rates[secondWaluteNum].ask : 1;
+    document.querySelector('[data-nameFirstWalute]').textContent = !(firstWaluteNum == -1)  ? data[t].rates[firstWaluteNum].code : 'PLN';
+    document.querySelector('[data-nameSecondWalute]').textContent = !(secondWaluteNum == -1)  ? data[t].rates[secondWaluteNum].code : 'PLN';
 
     return this.ourData;
   }
@@ -81,23 +90,24 @@ class DataBase extends Components {
   findDate(data) {
     let outDate = this.currentDate.value;
     let index = undefined;
+    let trepl = outDate.slice(-2);
+    let t = +outDate.slice(-2);
 
     while (true) {
-      let trepl = outDate.slice(-2);
-      let t = +outDate.slice(-2) - 1;
+      index = this.findIndex(data, outDate);
 
       if (t < 10) {
         outDate = outDate.replace(trepl, `0${t}`);
       } else {
-        outDate = outDate.replace(trepl, t);
+        outDate = outDate.replace(trepl, `${t}`);
       }
+
+      t = t - 1;
 
       if (t < 0) {
         index = 0;
         break;
       }
-
-      index = this.findIndex(data, outDate);
 
       if (index) {
         break;

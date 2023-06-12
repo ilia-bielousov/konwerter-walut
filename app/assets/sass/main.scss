@@ -32,6 +32,12 @@ body {
   padding: 0px 15px;
 }
 
+#grafic {
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
 .header {
   padding: 15px 0px;
   background-color: #00214a;
