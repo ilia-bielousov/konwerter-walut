@@ -11,22 +11,13 @@ class Convert extends Components {
     this.setValue(await this.requestToAPI(), value, i);
   }
 
-  startSite() {
-    this.changeDataBase();
-
-    // this.waluteInputs.forEach(item => {
-    //   item.value = 0;
-    // });
-  }
-
   classLogic() {
-    this.startSite();
 
     this.currentDate.addEventListener('change', () => {
       this.changeDataBase(+this.waluteInputs[0].value);
     });
 
-    this.select.forEach((item, i) => {
+    this.select.forEach(item => {
       item.addEventListener('change', () => {
         this.changeDataBase(+this.waluteInputs[0].value);
       });
@@ -42,12 +33,11 @@ class Convert extends Components {
       input.addEventListener('input', (e) => {
         e.target.value = e.target.value.replace(/[^.\d]+/g, '');
         const value = +e.target.value;
-
         this.changeDataBase(value, i);
       });
     });
 
-    this.waluteInputs.forEach((input, i) => {
+    this.waluteInputs.forEach(input => {
       input.addEventListener('click', (e) => {
         input.value = '';
       });
@@ -56,7 +46,8 @@ class Convert extends Components {
 
   setValue(data, value = 0, index = 0) {
     let temp = undefined;
-    const dataInside = this.data.createData(data);
+    let dataInside = this.data.createData(data);
+    dataInside = this.data.transformData(dataInside, index);
 
     for (let i = 0; i < dataInside.length; i++) {
       if (dataInside[i][0] == this.currentDate.value) {
@@ -73,9 +64,9 @@ class Convert extends Components {
     }
 
     if (index == 0) {
-      this.waluteInputs[1].value = (value * (dataInside[temp][1] / dataInside[temp][2])).toFixed(2);
+      this.waluteInputs[1].value = (value * (dataInside[temp][1])).toFixed(2);
     } else {
-      this.waluteInputs[0].value = (value * (dataInside[temp][2] / dataInside[temp][1])).toFixed(2);
+      this.waluteInputs[0].value = (value * (dataInside[temp][1])).toFixed(2);
     }
   }
 };

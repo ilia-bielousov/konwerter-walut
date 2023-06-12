@@ -17,15 +17,15 @@ class Grafic extends Components {
     google.charts.load('current', { 'packages': ['corechart', 'line'] });
     google.charts.setOnLoadCallback(drawChart);
 
-    const outData = this.data.createData(data);
+    let outData = this.data.createData(data);
+    let t = [];
+
+    outData = this.data.transformData(outData);
 
     function drawChart() {
-      console.log(outData);
       var data = new google.visualization.DataTable();
       data.addColumn('date', 'Date');
       data.addColumn('number', 'Current');
-      
-      let t = [];
       
       for (let i = 0; i < outData.length; i++) {
         t.push([new Date(outData[i][0]), outData[i][1]]);

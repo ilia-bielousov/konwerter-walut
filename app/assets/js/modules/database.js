@@ -107,13 +107,15 @@ class DataBase extends Components {
     return index;
   }
 
-  transformData(data) {
+  transformData(data, input = 0) {
     let t = [];
 
     for (let i = 0; i < data.length; i++) {
-      t.push([data[i][0], +(data[i][1] / data[i][2]).toFixed(3)]);
-
-      
+      if (input == 0) {
+        t.push([data[i][0], +(data[i][1] / data[i][2]).toFixed(3)]);
+      } else {
+        t.push([data[i][0], +(data[i][2] / data[i][1]).toFixed(3)]);
+      }
     }
 
     return t;
@@ -124,7 +126,6 @@ class DataBase extends Components {
 
     const index = this.findDate(data);
     this.ourData = this.fillData(data, index);
-    this.ourData = this.transformData(this.ourData);
 
     return this.ourData;
   }

@@ -12,7 +12,6 @@ class Flags extends Components {
       item.addEventListener('click', (event) => {
         const str = event.target.textContent.trim();
 
-        console.log(item);
         const doIt = (num) => {
           this.waluteName[num].innerHTML = str;
           this.flagImages[num].classList.value = `fi fi-${this.flags[str]} konwerter__flag-item`;
