@@ -92,14 +92,27 @@ body {
   &__input-number {
     height: 70px;
     margin-bottom: 10px;
+<<<<<<< HEAD
     padding: 15px 25px 15px 10px;
+=======
+    padding: 15px 15px 15px 10px;
+    cursor: pointer;
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
     box-sizing: border-box;
   }
 
   &__choose-walute {
+<<<<<<< HEAD
     display: flex;
     align-items: center;
     background-color: aliceblue;
+=======
+    background-color: aliceblue;
+  }
+
+  &__choose-list {
+    padding: 0px;
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
   }
 
   &__choose-walute:hover {
@@ -107,9 +120,12 @@ body {
   }
 
   &__flag {
+<<<<<<< HEAD
     margin-right: 20px;
+=======
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
   }
-  
+
   &__flag-item {
     width: 2em !important;
     height: 30px !important;
@@ -118,19 +134,33 @@ body {
   &__walute {
     display: flex;
     align-items: center;
-    width: 100%;
     font-size: 22px;
     font-weight: 500;
 
     span {
+<<<<<<< HEAD
       margin-right: 25px;
       @media (max-width: 992px) {
         margin-right: 15px;
       }
+=======
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
     }
   }
 
+  &__name-walute,
+  &__name-btn {
+    width: 100%;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    list-style-type: none;
+    font-size: 21px;
+    transition: 0.3s;
+  }
+
   &__name-walute {
+<<<<<<< HEAD
     width: 100%;
     padding: 10px 10px 10px 5px;
     border: 1px solid #000;
@@ -140,13 +170,24 @@ body {
     &:focus-visible {
       outline: none;
     }
+=======
+    padding: 0px;
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
   }
 
-  &__arrow {
+  &__arrow-inner {
+    position: relative;
+  }
+
+  &__walute-arrow {
     position: absolute;
-    z-index: 1;
-    right: 15px;
-    transform: rotate(90deg);
+    top: -8px;
+    left: -11px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
   }
 
   &__input-number:hover {

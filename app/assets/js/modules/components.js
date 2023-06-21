@@ -7,8 +7,13 @@ class Components extends Request {
     this.request = null;
 
     this.waluteInputs = document.querySelectorAll('.konwerter__input-value');
+<<<<<<< HEAD
     this.currentDate = document.querySelector('#date');
     this.flagImages = document.querySelectorAll('.konwerter__flag span');
+=======
+    this.currentDate = document.querySelector('.konwerter__calendar input');
+    this.flagImages = document.querySelectorAll('.konwerter__flag-item');
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
     this.waluteName = document.querySelectorAll('.konwerter__walute span');
     this.offenUsed = document.querySelectorAll('.konwerter__offen-used span');
     this.select = document.querySelectorAll('.konwerter__name-walute');
@@ -18,7 +23,11 @@ class Components extends Request {
       "CAD": "ca",
       "EUR": "eu",
       "HUF": "hu",
+<<<<<<< HEAD
       "CHF": "ch",
+=======
+      "CHF": "cg",
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
       "GBP": "gb",
       "JPY": "jp",
       "CZK": "cz",
@@ -38,6 +47,7 @@ class Components extends Request {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         return data;
       });
 

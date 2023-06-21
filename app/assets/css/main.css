@@ -84,6 +84,7 @@ body {
 .konwerter__choose-walute, .konwerter__input-number {
   height: 70px;
   margin-bottom: 10px;
+<<<<<<< HEAD
   padding: 15px 25px 15px 10px;
   box-sizing: border-box;
 }
@@ -91,13 +92,27 @@ body {
   display: flex;
   align-items: center;
   background-color: aliceblue;
+=======
+  padding: 15px 15px 15px 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.konwerter__choose-walute {
+  background-color: aliceblue;
+}
+.konwerter__choose-list {
+  padding: 0px;
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
 }
 .konwerter__choose-walute:hover {
   border: 1px solid #000;
 }
+<<<<<<< HEAD
 .konwerter__flag {
   margin-right: 20px;
 }
+=======
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
 .konwerter__flag-item {
   width: 2em !important;
   height: 30px !important;
@@ -105,10 +120,10 @@ body {
 .konwerter__walute {
   display: flex;
   align-items: center;
-  width: 100%;
   font-size: 22px;
   font-weight: 500;
 }
+<<<<<<< HEAD
 .konwerter__walute span {
   margin-right: 25px;
 }
@@ -128,10 +143,32 @@ body {
   outline: none;
 }
 .konwerter__arrow {
+=======
+.konwerter__name-walute, .konwerter__name-btn {
+  width: 100%;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  list-style-type: none;
+  font-size: 21px;
+  transition: 0.3s;
+}
+.konwerter__name-walute {
+  padding: 0px;
+}
+.konwerter__arrow-inner {
+  position: relative;
+}
+.konwerter__walute-arrow {
+>>>>>>> 334da0ba36f80b09388fd39657676083e9bdae4d
   position: absolute;
-  z-index: 1;
-  right: 15px;
-  transform: rotate(90deg);
+  top: -8px;
+  left: -11px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
 }
 .konwerter__input-number:hover {
   background-color: #cedfee;
