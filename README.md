@@ -5,15 +5,9 @@ To prosta aplikacja internetowa napisana w języku JavaScript(ES6), która umoż
 1. Sklonuj ten repozytorium lub pobierz go jako archiwum;
 
 <pre>
-<<<<<<< HEAD
 
 git clone https://github.com/ilia-bielousov/konwerter-walut
 
-=======
-```
-git clone https://github.com/ilia-bielousov/konwerter-walut
-```
->>>>>>> d591df0e8c962d1d5326e4f1be6e8143b0855490
 </pre>
 
 2. Zainstaluj wymagane zależności projektu, korzystając z menedżera pakietów npm (Node Package Manager). W terminalu wykonaj polecenie npm install, aby zainstalować wszystkie wymagane moduły zdefiniowane w pliku package.json;
