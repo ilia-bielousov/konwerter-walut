@@ -1,8 +1,11 @@
 'use strict';
 
-const { parallel, src, watch, dest } = require('gulp');
+const { parallel, src, watch, dest, task, series } = require('gulp');
 const scss = require('gulp-sass')(require('sass'));
 const webpack = require('webpack-stream');
+const browserSync = require('browser-sync');
+const concat = require('gulp-concat');
+const cssmin = require('gulp-cssmin');
 
 const dir = './app/assets/'
 
@@ -38,6 +41,26 @@ function JavaScript() {
     }))
     .pipe(dest('./app/'));
 }
+
+task('addImages', function() {
+  return src('./node_modules/flag-icons/flags/**/**')
+  .pipe(dest(`${dir}/flags`));
+});
+
+task('addLibs', function() {
+  return src(['./node_modules/flag-icons/css/flag-icons.css', './node_modules/bootstrap/dist/css/bootstrap.css'])
+  .pipe(concat('libs.css'))
+  .pipe(cssmin())
+  .pipe(dest(`${dir}css`));
+});
+
+task('start', series('addLibs', 'addImages', function() {
+  browserSync({
+    server: {
+      baseDir: 'app'
+    }
+  });
+}));
 
 function Watching() {
   watch([`${dir}sass/**.scss`, `${dir}index.html`], Styles);
