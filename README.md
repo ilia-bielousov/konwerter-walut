@@ -8,8 +8,9 @@ To prosta aplikacja internetowa napisana w języku JavaScript(ES6), która umoż
 git clone https://github.com/ilia-bielousov/konwerter-walut
 </pre>
 
-2. Zainstaluj wymagane zależności projektu, korzystając z menedżera pakietów npm (Node Package Manager). W terminalu wykonaj polecenie "npm install", aby zainstalować wszystkie wymagane moduły zdefiniowane w pliku package.json;
-3. Wpisz polecenie "gulp start", zeby otworzyc appke w przegladarce internetowej.
+2. Przejdz do folderu z projektem wykorzystujac polecenie "cd konwerter-walut";
+3. Zainstaluj wymagane zależności projektu, korzystając z menedżera pakietów npm (Node Package Manager). W terminalu wykonaj polecenie "npm install", aby zainstalować wszystkie wymagane moduły zdefiniowane w pliku package.json;
+4. Wpisz polecenie "gulp start", zeby otworzyc appke w przegladarce internetowej.
 
 ## Korzystanie
 1. Wpisz kwotę w polu "input pierwszym lub drugim" i wybierz walutę źródłową z rozwijanej listy. Standardowa walute dla pierwszego input to USD, dla drugiegi - PLN. Mozesz wybrac walute z rozwijanej listy (ograniczona liczby walut, ze wzgledu na korzystania z API **tabela C**);
